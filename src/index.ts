@@ -1,4 +1,4 @@
-import express = require("express");
+import express from "express";
 import {Express} from "express";
 import cors = require("cors");
 import serverRoutes from "./routes";
@@ -37,10 +37,10 @@ class App {
     middlewares(){
         const corsOptions ={
         origin:'http://localhost:3000', 
-        credentials:true,            //access-control-allow-credentials:true
+        credentials:true,
         optionSuccessStatus:200
     }
-        this.app.use(cors(corsOptions));
+        this.app.use(cors());
     }
 
     middlewaresCatch(){
@@ -84,4 +84,5 @@ class App {
         });
     }
 }
-export default new App();
+let app:App = new App();
+app.listen();
